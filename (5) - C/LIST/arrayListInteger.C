@@ -34,3 +34,13 @@ void freeMemory(struct itemListInteger **memory){
 	}
 }
 
+void createList(struct itemListInteger **memory,int *head, int *tail, int value)
+{
+	struct itemListInteger *list = *memory;
+	(*head) = Lfree;
+	(*tail) = (*head);
+	Lfree = list[Lfree].next;
+	list[(*tail)].next = 0;
+	list[(*head)].value = value;
+	*memory = list;
+}
