@@ -44,3 +44,13 @@ void createList(struct itemListInteger **memory,int *head, int *tail, int value)
 	list[(*head)].value = value;
 	*memory = list;
 }
+
+void deleteList(struct itemListInteger **memory, int *head, int *tail)
+{
+	struct itemListInteger *list = *memory;
+	list[(*tail)].next = Lfree;
+	Lfree = (*head);
+	(*head) = 0;
+	(*tail) = 0;
+	*memory = list;
+}
