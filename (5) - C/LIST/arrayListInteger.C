@@ -13,7 +13,7 @@ void  createMemory(struct itemListInteger **memory,int sizeList)
         //
 	tmpPtr = (struct itemListInteger *) malloc(sizeList*sizeof(struct itemListInteger));
 	if (tmpPtr){
-		//прошиваем память (cоздаем список свободной памяти) Lfree - голова списка свободной памяти
+		//create list free memory Lfree - head list free memory
 		for (int i = 1; i < sizeList - 1; i++){
 			tmpPtr[i].next = i + 1;
 			tmpPtr[i].value = 0;
@@ -26,3 +26,11 @@ void  createMemory(struct itemListInteger **memory,int sizeList)
 	*memory = tmpPtr;
 	Lfree = 1;
 }
+
+void freeMemory(struct itemListInteger **memory){
+	if (*memory){
+		free(*memory);
+		*memory = NULL;
+	}
+}
+
