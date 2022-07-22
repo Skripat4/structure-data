@@ -64,3 +64,13 @@ void addToTail(struct itemListInteger **memory, int *tail, int value){
 	list[(*tail)].value = value;
 	*memory = list;
 }
+
+void addToHead(struct itemListInteger **memory, int *head, int value){
+	struct itemListInteger *list = *memory;
+	int temp = list[Lfree].next;
+	list[Lfree].next = (*head);
+	(*head) = Lfree;
+	Lfree = temp;
+	list[(*head)].value = value;
+	*memory = list;
+}
