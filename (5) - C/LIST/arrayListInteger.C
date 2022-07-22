@@ -85,3 +85,13 @@ void addAfter(struct itemListInteger **memory,int *tail, int index, int value){
 	Lfree = temp;
 	*memory = list;
 }
+
+void deleteAfter(struct itemListInteger **memory, int *tail, int index){
+	struct itemListInteger *list = *memory;
+	int temp = list[index].next;
+	if (temp == (*tail)){ (*tail) = index; }
+	list[index].next = list[list[index].next].next;
+	list[temp].next = Lfree;
+	Lfree = temp;
+	*memory = list;
+}
