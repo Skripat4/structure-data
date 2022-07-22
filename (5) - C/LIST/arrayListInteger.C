@@ -54,3 +54,13 @@ void deleteList(struct itemListInteger **memory, int *head, int *tail)
 	(*tail) = 0;
 	*memory = list;
 }
+
+void addToTail(struct itemListInteger **memory, int *tail, int value){
+	struct itemListInteger *list = *memory;
+	list[(*tail)].next = Lfree;
+	(*tail) = Lfree;
+	Lfree = list[Lfree].next;
+	list[(*tail)].next = 0;
+	list[(*tail)].value = value;
+	*memory = list;
+}
