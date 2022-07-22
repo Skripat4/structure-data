@@ -74,3 +74,14 @@ void addToHead(struct itemListInteger **memory, int *head, int value){
 	list[(*head)].value = value;
 	*memory = list;
 }
+
+void addAfter(struct itemListInteger **memory,int *tail, int index, int value){
+	struct itemListInteger *list = *memory;
+	int temp = list[Lfree].next;
+	list[Lfree].next = list[index].next;
+	list[index].next = Lfree;
+	list[Lfree].value = value;
+	if (index == (*tail)){ (*tail) = Lfree; }
+	Lfree = temp;
+	*memory = list;
+}
