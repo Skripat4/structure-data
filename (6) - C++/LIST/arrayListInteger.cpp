@@ -20,3 +20,13 @@ void arrayListInteger::createMemory(int size){
 	list[size - 1].next = 0;
 	lFree = 1;
 }
+
+void arrayListInteger::createList(int *head, int *tail,int value){
+	
+	*head = lFree;
+	lFree = list[lFree].next;
+	*tail = *head;
+	list[*head].next = 0;
+	list[*head].value = value;
+}
+
