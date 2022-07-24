@@ -30,3 +30,9 @@ void arrayListInteger::createList(int *head, int *tail,int value){
 	list[*head].value = value;
 }
 
+void arrayListInteger::deleteList(int *head, int *tail){
+	list[*tail].next = lFree;
+	lFree = *head;
+	*head = 0;
+	*tail = 0;
+}
