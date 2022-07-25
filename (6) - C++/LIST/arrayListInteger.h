@@ -23,4 +23,6 @@ public:
 	void createList(int *head, int *tail,int value);
 	void deleteList(int *head, int *tail);
 	void addToTail(int *tail, int value);
+	void addToHead(int *head, int value);
+	void addToAfter(int *tail, int index,int value);
 }
