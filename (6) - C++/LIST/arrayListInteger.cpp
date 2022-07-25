@@ -36,3 +36,11 @@ void arrayListInteger::deleteList(int *head, int *tail){
 	*head = 0;
 	*tail = 0;
 }
+
+void arrayListInteger::addToHead(int *head, int value){
+	int temp = list[lFree].next;
+	list[lFree].next = *head;
+	*head = lFree;
+	lFree = temp;
+	list[*head].value = value;
+}
