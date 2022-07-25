@@ -44,3 +44,12 @@ void arrayListInteger::addToHead(int *head, int value){
 	lFree = temp;
 	list[*head].value = value;
 }
+
+void arrayListInteger::addToAfter(int *tail,int index, int value){
+	int temp = list[lFree].next;
+	list[lFree].next = list[index].next;
+	list[index].next = lFree;
+	list[lFree].value = value;
+	if (*tail == index){ *tail = lFree; }
+	lFree = temp;
+}
