@@ -26,4 +26,5 @@ public:
 	void addToHead(int *head, int value);
 	void addToAfter(int *tail, int index,int value);
 	void deleteAfter(int *tail, int index);
+	void deleteTail(int *head, int *tail);
 }
