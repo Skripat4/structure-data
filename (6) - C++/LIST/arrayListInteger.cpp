@@ -62,3 +62,15 @@ void arrayListInteger::deleteAfter(int *tail,int index){
 	lFree = temp;
 
 }
+
+void arrayListInteger::deleteTail(int *head, int *tail){
+	if (*head == *tail){ deleteList(head,tail); }
+	else{
+		int j = *head;
+		while (list[j].next != *tail ){ j = list[j].next; }
+		list[j].next = 0;
+		list[(*tail)].next = lFree;
+		lFree = *tail;
+		*tail = j;
+	}
+}
