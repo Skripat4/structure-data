@@ -53,3 +53,12 @@ void arrayListInteger::addToAfter(int *tail,int index, int value){
 	if (*tail == index){ *tail = lFree; }
 	lFree = temp;
 }
+
+void arrayListInteger::deleteAfter(int *tail,int index){
+	int temp = list[index].next;
+	if (temp == *tail){ *tail = index; }
+	list[index].next = list[temp].next;
+	list[temp].next = lFree;
+	lFree = temp;
+
+}
