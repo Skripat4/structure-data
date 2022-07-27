@@ -74,3 +74,10 @@ void arrayListInteger::deleteTail(int *head, int *tail){
 		*tail = j;
 	}
 }
+
+void arrayListInteger::deleteHead(int *head){
+	int j = *head;
+	*head = list[*head].next;
+	list[j].next = lFree;
+	lFree = j;
+}
