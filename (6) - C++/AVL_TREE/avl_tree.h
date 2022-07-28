@@ -20,7 +20,7 @@ private:
 public:
 	avl_tree();
 	~avl_tree();
-
+	void addElement(int *head,int value);
 	
 }
 #endif
