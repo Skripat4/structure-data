@@ -21,6 +21,7 @@ public:
 	avl_tree();
 	~avl_tree();
 	void addElement(int *head,int value);
-	
+	int *getHead();
+	vector<itemTreeAvlInteger> *getMemory();
 }
 #endif
