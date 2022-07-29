@@ -17,6 +17,7 @@ private:
  vector<itemTreeAvlInteger> tree;
 
 	int lFree;
+	int lastFree;
 	int head;
 	void createMemory(int size);
 	void addToFree(int index);
