@@ -9,6 +9,8 @@ struct itemTreeAvlInteger{
  int parent; int left; int right; unsigned char balance; // avl tree
 };
 
+#define balanced 2
+
 class avl_tree
 {
 private:
@@ -17,6 +19,7 @@ private:
 	int lFree;
 	int head;
 	void createMemory(int size);
+	void addToFree(int index);
 public:
 	avl_tree();
 	~avl_tree();
