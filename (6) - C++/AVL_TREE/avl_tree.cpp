@@ -39,3 +39,10 @@ void avl_tree::addToFree(int index)
 	tree[index].last = 0;
 	lFree = index;
 }
+
+int *avl_tree::getHead(){
+	return &head;
+}
+vector<itemTreeAvlInteger> *avl_tree::getMemory(){
+	return &tree;
+}
