@@ -29,3 +29,13 @@ for (int i = 0; i < size; i++){
 	lFree = 1;
 	lastFree = 0;
 }
+
+void avl_tree::addToFree(int index)
+{
+	tree[tree[index].last].next = tree[index].next;
+	tree[tree[index].next].last = tree[index].last;
+	tree[index].next = lFree;
+	tree[lFree].last = index;
+	tree[index].last = 0;
+	lFree = index;
+}
