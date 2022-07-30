@@ -40,6 +40,45 @@ void avl_tree::addToFree(int index)
 	lFree = index;
 }
 
+void avl_tree::addElement(int *head, int value)
+{
+	int n;
+	int i = *head;
+	int j = 0;
+	while (i != 0){
+		j = i;
+		if (tree[i].value < value){
+			i = tree[i].right;
+		}
+		else{
+			i = tree[i].left;
+		}
+
+	}
+	if (j == 0){ *head = lFree; }
+	      else {
+			if (tree[j].value < value)
+				{ tree[j].right = lFree; }
+				else    { tree[j].left = lFree; }		
+		   }
+	int temp = tree[lFree].next;
+	tree[lFree].value = value;
+	tree[lFree].parent = j;
+	tree[lFree].right = 0;
+	tree[lFree].left = 0;
+	tree[lFree].balance = balanced;
+	tree[lFree].last = lastFree;
+	tree[lastFree].next = lFree;
+	lastFree = lFree;
+	i = lFree;
+	
+	tree[lFree].next = 0;
+	lFree = temp;
+	tree[lFree].last = 0;
+
+}
+
+
 int *avl_tree::getHead(){
 	return &head;
 }
