@@ -132,6 +132,32 @@ void avl_tree::addElement(int *head, int value)
 			tree[i].balance = balanced;
 			tree[j].balance = balanced;
 		}
+		if (tree[j].balance == balanced + 2 && tree[i].balance == balanced - 1){
+			int mm = tree[j].parent;
+			n = tree[tree[i].left].left;
+			q = tree[tree[i].left].right;
+			if (mm == 0){ *head = tree[i].left; }
+			else
+			{
+				if (tree[mm].left == j){ tree[mm].left = tree[i].left; }
+									else{tree[mm].right = tree[i].left;}
+			
+			}
+			tree[tree[i].left].parent = mm;
+			mm = tree[i].left;
+			tree[j].parent = mm;
+			tree[i].parent = mm;
+			tree[mm].right = i;
+			tree[mm].left = j;
+			tree[j].right = n;
+			tree[i].left = q;
+			tree[n].parent = j;
+			tree[q].parent = i;
+			tree[mm].balance = balanced;
+			tree[i].balance = balanced;
+			tree[j].balance = balanced;
+
+		}
 }//else q==0
 
 }
