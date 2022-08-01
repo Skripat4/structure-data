@@ -40,6 +40,21 @@ void avl_tree::addToFree(int index)
 	lFree = index;
 }
 
+int avl_tree::findElement(int *head, int value){
+	int i = *head;
+	while (i != 0){
+		if (tree[i].value == value){
+			return i;
+			
+		}
+		if (tree[i].value < value){
+			i = tree[i].right;
+		}
+		else{ i = tree[i].left; }
+	}
+	return i;
+}
+
 void avl_tree::addElement(int *head, int value)
 {
 	int n;
